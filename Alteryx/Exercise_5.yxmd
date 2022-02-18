@@ -1,0 +1,742 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.4">
+  <Nodes>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">\Features data set.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Features data set.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="Date" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="Temperature" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="Fuel_Price" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="MarkDown1" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="MarkDown2" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="MarkDown3" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="MarkDown4" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="MarkDown5" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="CPI" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="Unemployment" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+            <Field name="IsHoliday" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="MarkDown1" selected="False" />
+            <SelectField field="MarkDown2" selected="False" />
+            <SelectField field="MarkDown3" selected="False" />
+            <SelectField field="MarkDown4" selected="False" />
+            <SelectField field="MarkDown5" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="282" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Store" selected="True" />
+            <Field field="Date" selected="True" />
+            <Field field="Temperature" selected="True" />
+            <Field field="Fuel_Price" selected="True" />
+            <Field field="CPI" selected="True" />
+            <Field field="Unemployment" selected="True" />
+            <Field field="IsHoliday" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="Byte" />
+            <Field name="Date" size="10" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="String" />
+            <Field name="Temperature" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="Double" />
+            <Field name="Fuel_Price" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="Double" />
+            <Field name="CPI" size="11" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="String" />
+            <Field name="Unemployment" size="6" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="String" />
+            <Field name="IsHoliday" source="File: C:\Users\sanma\Documents\Alteryx\Instructions+&amp;+Files+-+Transform\Features data set.csv" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="930" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\sanma\AppData\Local\Temp\Engine_600_95f7f4a9961e4d4493a0a7e81125c029_\Engine_9280_11cf018c649e43e7b0a8e854b99b1830_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="378" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Date</InputFieldName>
+          <Language>English</Language>
+          <Format>dd/MM/yyyy</Format>
+          <OutputFieldName>DateTime_Out</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Date From:
+dd/MM/yyyy</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="474" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ROUND(([Temperature]-32)*5/9,0.1)" field="Temperature (in Celcius)" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Temperature (in Celcius) = ROUND(([Temperature]-32)*5/9,0.1)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="558" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Date" selected="False" />
+            <SelectField field="DateTime_Out" selected="True" rename="Date" />
+            <SelectField field="Temperature (in Celcius)" selected="True" type="Double" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="642" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="CPI" />
+            <Field name="Unemployment" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn>New_</NewFieldAddOn>
+          <NewFieldAddOnPos>Prefix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>IF [_CurrentField_]="NA" THEN Null() ELSE [_CurrentField_] ENDIF</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [_CurrentField_]="NA" THEN Null() ELSE [_CurrentField_] ENDIF</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+        <Position x="738" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Method>SmartTile</Method>
+          <SmartTile>
+            <Field>Temperature (in Celcius)</Field>
+            <NameField>Short</NameField>
+          </SmartTile>
+          <GroupFields orderChanged="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="846" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>New_Unemployment</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-08-17 15:40:35</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2021-08-17 15:40:35</StartDate>
+              <EndDate>2021-08-17 15:40:35</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([New_Unemployment])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>sales_store21-50.xlsx
+Query=`sales_store11-20$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`" type="Double" />
+            <Field name="Dept" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`" type="Double" />
+            <Field name="Date" size="255" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`" type="V_String" />
+            <Field name="Weekly_Sales" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`" type="Double" />
+            <Field name="IsHoliday" size="255" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store21-50.xlsx|||`sales_store11-20$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>sales_store1-10.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv" type="V_String" />
+            <Field name="Dept" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv" type="V_String" />
+            <Field name="Date" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv" type="V_String" />
+            <Field name="Weekly_Sales" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv" type="V_String" />
+            <Field name="IsHoliday" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store1-10.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>sales_store11-20.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv" type="V_String" />
+            <Field name="Dept" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv" type="V_String" />
+            <Field name="Date" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv" type="V_String" />
+            <Field name="Weekly_Sales" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv" type="V_String" />
+            <Field name="IsHoliday" size="254" source="File: C:\Users\sanma\Documents\Alteryx\Section5\Instructions+&amp;+Files+-+Join+&amp;+Union\sales_store11-20.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="222" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="330" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Date</InputFieldName>
+          <Language>English</Language>
+          <Format>dd/MM/yyyy</Format>
+          <OutputFieldName>DateTime_Out</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Date From:
+dd/MM/yyyy</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="546" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNull</Operator>
+            <Field>DateTime_Out</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-09-09 17:36:09</PeriodDate>
+              <PeriodType>days</PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>2021-09-09</Operand>
+              <StartDate>2021-09-09 17:36:09</StartDate>
+              <EndDate>2021-09-09 17:36:09</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IsNull([DateTime_Out])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="426" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Date</InputFieldName>
+          <Language>English</Language>
+          <Format>yyyy-dd-MM</Format>
+          <OutputFieldName>DateTime_Out</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Date From:
+Custom</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="558" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [DateTime_Out] = Null() THEN [DateTime_Out2] ELSE [DateTime_Out] ENDIF" field="Date_Final" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Date_Final = IF [DateTime_Out] = Null() THEN [DateTime_Out2] ELSE [DateTime_Out]...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="654" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Date" selected="False" />
+            <SelectField field="DateTime_Out" selected="False" />
+            <SelectField field="DateTime_Out2" selected="False" />
+            <SelectField field="Date_Final" selected="True" rename="Date" type="Date" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="750" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Store" selected="True" />
+            <Field field="Dept" selected="True" />
+            <Field field="Weekly_Sales" selected="True" />
+            <Field field="IsHoliday" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" source="File: (Multiple Sources)" type="Byte" />
+            <Field name="Dept" source="File: (Multiple Sources)" type="Byte" />
+            <Field name="Weekly_Sales" source="File: (Multiple Sources)" type="Double" />
+            <Field name="IsHoliday" source="File: (Multiple Sources)" type="Bool" />
+            <Field name="Date" source="Formula: IF [DateTime_Out] = Null() THEN [DateTime_Out2] ELSE [DateTime_Out] ENDIF" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="918" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Store" />
+            <Field field="Date" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Store" />
+            <Field field="Date" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_Store" selected="True" rename="Right_Store" input="Right_" />
+                <SelectField field="Right_IsHoliday" selected="True" rename="Right_IsHoliday" input="Right_" />
+                <SelectField field="Right_Date" selected="True" rename="Right_Date" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1038" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="True" />
+      <Destination ToolID="34" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Right" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Join" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Exercise_5</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="2c14416b-272a-44dc-ba49-68140cff9b3b" />
+      <Telemetry>
+        <PreviousWorkflowId value="56c35234-48b5-4eb7-87df-cbcbc4425632" />
+        <OriginWorkflowId value="e948186f-cddc-4743-8f31-24c871ee59af" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
