@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>StoreSales.xlsx</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Double" />
+            <Field name="Store" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Double" />
+            <Field name="Department" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Double" />
+            <Field name="Weekly_Sales" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Double" />
+            <Field name="IsHoliday" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Bool" />
+            <Field name="Date" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Date" />
+            <Field name="Year" size="255" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="V_String" />
+            <Field name="Month" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="Double" />
+            <Field name="MonthName" size="255" source="File: C:\Users\sanma\Documents\Alteryx\Section7\StoreSales.xlsx" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="246" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Store" action="GroupBy" rename="Store" />
+            <SummarizeField field="Year" action="GroupBy" rename="Year" />
+            <SummarizeField field="Weekly_Sales" action="Sum" rename="Sum_Weekly_Sales" />
+            <SummarizeField field="Weekly_Sales" action="Avg" rename="Avg_Weekly_Sales" />
+            <SummarizeField field="Weekly_Sales" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RunningTotal.RunningTotal">
+        <Position x="258" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupByFields>
+            <Field field="Store" />
+            <Field field="Department" />
+            <Field field="Year" />
+          </GroupByFields>
+          <RunningTotalFields>
+            <Field field="Weekly_Sales" />
+          </RunningTotalFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunningTotal" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="378" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Value">Avg_Weekly_Sales</Value>
+          <Value name="Weight">Count</Value>
+          <Value name="OutputFieldName">WeightedAverage</Value>
+          <Value name="GroupFields">Store</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="WeightedAvg.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="510" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="CountRecords.yxmc" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="222" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Store" />
+            <Field field="Year" />
+          </GroupFields>
+          <HeaderField field="MonthName" />
+          <DataField field="Weekly_Sales" />
+          <Methods>
+            <Method method="Sum" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" source="CrossTab:Group:Sum:" type="Double" />
+            <Field name="Year" size="255" source="CrossTab:Group:Sum:" type="V_String" />
+            <Field name="April" source="CrossTab:Header:MonthName:April:Sum:" type="Double" />
+            <Field name="August" source="CrossTab:Header:MonthName:August:Sum:" type="Double" />
+            <Field name="December" source="CrossTab:Header:MonthName:December:Sum:" type="Double" />
+            <Field name="February" source="CrossTab:Header:MonthName:February:Sum:" type="Double" />
+            <Field name="January" source="CrossTab:Header:MonthName:January:Sum:" type="Double" />
+            <Field name="July" source="CrossTab:Header:MonthName:July:Sum:" type="Double" />
+            <Field name="June" source="CrossTab:Header:MonthName:June:Sum:" type="Double" />
+            <Field name="March" source="CrossTab:Header:MonthName:March:Sum:" type="Double" />
+            <Field name="May" source="CrossTab:Header:MonthName:May:Sum:" type="Double" />
+            <Field name="November" source="CrossTab:Header:MonthName:November:Sum:" type="Double" />
+            <Field name="October" source="CrossTab:Header:MonthName:October:Sum:" type="Double" />
+            <Field name="September" source="CrossTab:Header:MonthName:September:Sum:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Store" order="Asc" />
+            <Field field="Year" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Store" />
+            <Field field="Year" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Store" selected="False" />
+            <Field field="Year" selected="False" />
+            <Field field="April" selected="True" />
+            <Field field="August" selected="True" />
+            <Field field="December" selected="True" />
+            <Field field="February" selected="True" />
+            <Field field="January" selected="True" />
+            <Field field="July" selected="True" />
+            <Field field="June" selected="True" />
+            <Field field="March" selected="True" />
+            <Field field="May" selected="True" />
+            <Field field="November" selected="True" />
+            <Field field="October" selected="True" />
+            <Field field="September" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input8" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>SEction7wf</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="a8fc49f1-889a-434e-b48a-e07d2ddbb613" />
+      <Telemetry>
+        <PreviousWorkflowId value="e1703279-34bd-4857-a7df-e7eb1f2c74b8" />
+        <OriginWorkflowId value="e1703279-34bd-4857-a7df-e7eb1f2c74b8" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
