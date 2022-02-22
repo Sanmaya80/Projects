@@ -3,19 +3,19 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="126" y="138" />
+        <Position x="114" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="4" />
+          <NumRows value="3" />
           <Fields>
             <Field name="Product" />
-            <Field name="Price" />
+            <Field name="Prices" />
           </Fields>
           <Data>
             <r>
               <c>A</c>
-              <c>100</c>
+              <c>150</c>
             </r>
             <r>
               <c>B</c>
@@ -25,10 +25,6 @@
               <c>C</c>
               <c>300</c>
             </r>
-            <r>
-              <c />
-              <c />
-            </r>
           </Data>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -38,82 +34,30 @@
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
-    </Node>
-    <Node ToolID="2">
-      <GuiSettings>
-        <Position x="366" y="66" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="BatchMacroGroupBy"><![CDATA[Control=product
-Input2=Product
-]]></Value>
-          <Value name="Input.Input2"><![CDATA[Price=Price
-]]></Value>
-          <Value name="ControlParams"><![CDATA[Control Parameter (5)=Price
-]]></Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="Output6">
-          <RecordInfo>
-            <Field name="Product" size="1" source="TextInput: (BatchMacro)" type="String" />
-            <Field name="Price" source="TextInput: (BatchMacro)" type="Int16" />
-            <Field name="Revenue" size="1073741823" source="Formula: [Price]*10 (BatchMacro)" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro=".\our BatchMacro.yxmc" />
     </Node>
     <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="126" y="18" />
+      <GuiSettings>
+        <Position x="270" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="3" />
-          <Fields>
-            <Field name="product" />
-            <Field name="Price" />
-          </Fields>
-          <Data>
-            <r>
-              <c>A</c>
-              <c>10</c>
-            </r>
-            <r>
-              <c>B</c>
-              <c>20</c>
-            </r>
-            <r>
-              <c>C</c>
-              <c>30</c>
-            </r>
-          </Data>
+          <Value name="Input.Input2"><![CDATA[PRICE=Prices
+]]></Value>
+          <Value name="Drop Down (5)">30</Value>
         </Configuration>
         <Annotation DisplayMode="0">
-          <Name />
+          <Name>StandardMacro (2)</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+      <EngineSettings Macro=".\StandardMacro.yxmc" />
     </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="2" Connection="Input2" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="2" Connection="Control" />
+      <Destination ToolID="3" Connection="Input2" />
     </Connection>
   </Connections>
   <Properties>
@@ -135,7 +79,7 @@ Input2=Product
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>New Workflow5</Name>
+      <Name>New Workflow3</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -150,10 +94,10 @@ Input2=Product
         <Description />
         <File />
       </Example>
-      <WorkflowId value="343354dc-6ce2-43f6-810c-38ffef99f701" />
+      <WorkflowId value="e858bee0-0ac2-4b25-83e9-c43c5f629d67" />
       <Telemetry>
-        <PreviousWorkflowId value="19ba8604-805b-47b7-8bab-43d6c2d7a82d" />
-        <OriginWorkflowId value="19ba8604-805b-47b7-8bab-43d6c2d7a82d" />
+        <PreviousWorkflowId value="8921ad07-83d3-4e77-b23c-237a42d52593" />
+        <OriginWorkflowId value="8921ad07-83d3-4e77-b23c-237a42d52593" />
       </Telemetry>
     </MetaInfo>
     <Events>
