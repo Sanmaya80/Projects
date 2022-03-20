@@ -38,3 +38,48 @@ ON e.emp_no=d.emp_no;
  ON e.emp_no=t.emp_no
  WHERE first_name='Margareta' and Last_name='Markovitch';
  
+ /*Use a CROSS JOIN to return a list with all possible combinations between managers 
+ from the dept_manager table and department number 9.*/
+ 
+ SELECT * from dept_manager;
+ 
+ Select dm.*,d.*
+ from dept_manager dm
+ CROSS JOIN
+ departments d
+ WHERE d.dept_no='d009'
+ ORDER by d.dept_no;
+ 
+ /*Return a list with the first 10 employees with all the departments they can be assigned to.*/
+ select * from dept_emp;
+ SELECT e.*, d.*
+ from employees e
+ CROSS JOIN
+ dept_emp d
+ where e.emp_no=d.emp_no
+ ORDER BY e.emp_no
+ LIMIT 10;
+ 
+ -- Select all managers’ first and last name, hire date, job title, start date, and department name.
+ Select 
+ e.first_name,
+ e.last_name,
+ e.hire_date,
+ t.title,
+ t.from_date,
+ d.dept_name
+ from employees e
+ inner JOIn
+ titles t
+ ON e.emp_no= t.emp_no
+ inner Join
+ dept_manager dm
+ ON dm.emp_no=t.emp_no
+ Inner JOIN
+ departments d 
+ on dm.dept_no=d.dept_no
+ WHERE t.title='Manager'
+ ORDER BY e.emp_no;
+ 
+ 
+ 
