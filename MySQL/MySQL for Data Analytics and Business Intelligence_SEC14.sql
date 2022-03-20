@@ -81,5 +81,66 @@ ON e.emp_no=d.emp_no;
  WHERE t.title='Manager'
  ORDER BY e.emp_no;
  
+ SELEct d.dept_name,
+ ROUND(AVG(s.salary),2) As 'AVG Salary'
+ FROM departments d
+ Inner JOIN
+ dept_manager dm
+ ON d.dept_no=dm.dept_no
+ JOIN
+ salaries s
+ ON dm.emp_no=s.emp_no
+ group by d.dept_name;
  
+ -- How many male and how many female managers do we have in the ‘employees’ database?
+ Select e.gender,
+ COUNT(t.title) as 'Count of Managers'
+ from employees e
+ inner join
+ titles t
+ ON e.emp_no=t.emp_no
+ where title='Manager'
+ Group BY e.gender;
+ 
+ SELECT
+
+    *
+
+FROM
+
+    (SELECT
+
+        e.emp_no,
+
+            e.first_name,
+
+            e.last_name,
+
+            NULL AS dept_no,
+
+            NULL AS from_date
+
+    FROM
+
+        employees e
+
+    WHERE
+
+        last_name = 'Denis' UNION SELECT
+
+        NULL AS emp_no,
+
+            NULL AS first_name,
+
+            NULL AS last_name,
+
+            dm.dept_no,
+
+            dm.from_date
+
+    FROM
+
+        dept_manager dm) as a
+
+ORDER BY -a.emp_no DeSC;
  
